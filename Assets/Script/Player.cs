@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     [Header("PlayerÇ™éÛÇØÇÈçUåÇ")]
     int _damage;
 
+    [SerializeField]
+    [Header("ShopUI")]
+    GameObject _shopUI;
+    
     /// <summary>çÑëÃ</summary>
     Rigidbody _rb;
 
@@ -45,7 +50,20 @@ public class Player : MonoBehaviour
         {
             _playerData.AddCoin(10);
         }
+        if (other.gameObject.tag == "Shop")
+        {
+            _shopUI.SetActive(true);
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Shop")
+        {
+            _shopUI.SetActive(false);
+        }
+    }
+
     void Update()
     {
         Move();
