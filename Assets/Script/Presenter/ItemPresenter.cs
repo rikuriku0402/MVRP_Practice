@@ -15,10 +15,6 @@ public class ItemPresenter : MonoBehaviour
 
     void Start()
     {
-        //_playerData.Life.Subscribe(life =>
-        //{
-        //    _lifeViwe.SetLife(life);
-        //}).AddTo(this);
         _playerData.Portion.Subscribe(item => _itemViwe.SetPortion(item)).AddTo(this);
         _playerData.Antidote.Subscribe(item => _itemViwe.SetAntidote(item)).AddTo(this);
     }

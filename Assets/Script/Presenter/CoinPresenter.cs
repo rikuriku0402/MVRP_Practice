@@ -15,10 +15,6 @@ public class CoinPresenter : MonoBehaviour
 
     void Start()
     {
-        //_playerData.Life.Subscribe(life =>
-        //{
-        //    _lifeViwe.SetLife(life);
-        //}).AddTo(this);
         _playerData.Coin.Subscribe(coin => _coinViwe.SetCoin(coin)).AddTo(this);
     }
 }

@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     [Header("ShopUI")]
     GameObject _shopUI;
+
+    [SerializeField]
+    [Header("所持アイテム表示")]
+    GameObject _currentItem;
     
     /// <summary>剛体</summary>
     Rigidbody _rb;
@@ -28,7 +32,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -67,6 +70,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _currentItem.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _currentItem.SetActive(false);
+        }
     }
 
     public void Move()
